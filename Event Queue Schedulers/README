@@ -1,0 +1,34 @@
+Author: Patrick Lebold
+
+To compile the following program, type: 
+
+$ make
+
+To run the program, type in the following:
+
+$ ./main num_of_events time_slice < inputfile > outputfile
+	Where:
+		- "num_of_events" is the number of events you wish to enter to the queue
+		- "time_slice" is the amount of time allocated to each event
+			- A time slice of '0' will result in a First-Come, First-Serve scheduler being simulated
+			- Any other time slice value will result in a Round-Robin scheduler being simulated
+		- "< inputfile" is an optional parameter that specifies a file that will be read instead of standard input
+		- "> outputfile" is an option parameter that specifies a file that will be written on opposed to standard output
+		
+INPUT INFORMATION:
+
+	-Events are entered in the following form:
+	
+	Event_ID	ARRIVAL_TIME	CPU_TIME
+	
+	Where:
+		- "Event_ID" is the id of the registered event
+		- "ARRIVAL_TIME" is the simulated time that the event will enter the queue
+		- "CPU_TIME" is the simulated amount of time that the scheduler will take to process the event
+		
+NOTES: 
+	-All units are measured in terms of '100 milliseconds'.
+		-An arrival time of '100 milliseconds' will be represented in the program by a '1'.
+		-The minimum 'CPU_TIME' of an event is '1' (100 milliseconds)
+	-With a 'time slice' set at '7' (700 milliseconds), an event with a 'CPU_TIME' of '45' (4500 milliseconds) will run through the scheduler 7 times before being completely processed.
+	
